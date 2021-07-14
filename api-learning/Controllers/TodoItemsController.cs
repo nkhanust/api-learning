@@ -79,8 +79,8 @@ namespace api_learning.Controllers
         {
             _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
+            // http post method. gets value of the to-do item from the body of the http request
+            return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
         }
 
         // DELETE: api/TodoItems/5
